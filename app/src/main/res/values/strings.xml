@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">MapsMasterclass</string>
+    <string name="name_of_sight">Name of sight</string>
+    <string name="address">Address</string>
+    <string name="description">Description</string>
+</resources>

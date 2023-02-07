@@ -1,0 +1,50 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+}
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    namespace 'com.example.mapsmasterclass'
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.example.mapsmasterclass"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    // glide - для лёгкой выгрузки изображений, ссылка на простое объяснение - https://developer.alexanderklimov.ru/android/library/glide.php
+    // основной конкурент - picasso (аналог), ссылка на простое объяснение - https://square.github.io/picasso/
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
+    // firebase  - это платформа разработки мобильных приложений, мы используем как хранилище изображений
+    //ссылка на информацию по работе - https://firebase.google.com/docs/storage/android/start?hl=ru
+    implementation 'com.firebaseui:firebase-ui-storage:7.2.0'
+    // Зависимость для возможности внедрения гугл карт в приложение (не забудьте сделать ключ и вставить в манифест)
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
+
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
+
